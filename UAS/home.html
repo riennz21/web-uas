@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <a href="index.html">Beranda</a>
+    <a href="about.html">Tentang</a>
+    <a href="contact.html">Kontak</a>
+  </header>
+
+  <!-- Galeri Destinasi -->
+  <section class="destinations">
+    <h2>Welcome to Bali</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="Nusapenida.jpg" alt="Nusa Penida">
+        <div class="card-body">
+          <h3>Nusa Penida</h3>
+          <p class="rating">⭐⭐⭐⭐☆</p>
+          <p>$240 / person</p>
+          <a href="#" class="details-btn">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="TanahLOT.jpg" alt="Tanah Lot">
+        <div class="card-body">
+          <h3>Tanah Lot</h3>
+          <p class="rating">⭐⭐⭐⭐⭐</p>
+          <p>$400 / person</p>
+          <a href="#" class="details-btn">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="uluwatu.jpg" alt="Uluwatu">
+        <div class="card-body">
+          <h3>Uluwatu</h3>
+          <p class="rating">⭐⭐⭐⭐☆</p>
+          <p>$300 / person</p>
+          <a href="#" class="details-btn">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="nusa2.jpg" alt="Nusa Dua">
+        <div class="card-body">
+          <h3>Nusa Dua</h3>
+          <p class="rating">⭐⭐⭐⭐⭐</p>
+          <p>$200 / person</p>
+          <a href="#" class="details-btn">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="GWK.jpg" alt="Garuda Wisnu Kencana">
+        <div class="card-body">
+          <h3>GWK</h3>
+          <p class="rating">⭐⭐⭐⭐☆</p>
+          <p>$300 / person</p>
+          <a href="#" class="details-btn">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="diamon beach.jpg" alt="Diamond Beach">
+        <div class="card-body">
+          <h3>Diamond Beach</h3>
+          <p class="rating">⭐⭐⭐⭐☆</p>
+          <p>$300 / person</p>
+          <a href="#" class="details-btn">Lihat Detail</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Pop-up -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h3 id="modal-title">Destinasi</h3>
+      <p id="modal-description">Deskripsi singkat destinasi akan muncul di sini.</p>
+    </div>
+  </div>
+
+  <!-- Script Modal -->
+  <script>
+    const modal = document.getElementById('modal');
+    const closeModal = document.getElementById('closeModal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-description');
+
+    const detailButtons = document.querySelectorAll('.details-btn');
+    const titles = [
+      'Nusa Penida',
+      'Tanah Lot',
+      'Uluwatu',
+      'Nusa Dua',
+      'GWK (Garuda Wisnu Kencana)',
+      'Diamond Beach'
+    ];
+    const descriptions = [
+      'Pulau eksotis dengan tebing curam dan laut biru yang menakjubkan.',
+      'Pura di atas batu karang yang ikonik saat matahari terbenam.',
+      'Tempat populer untuk melihat sunset dan pertunjukan tari kecak.',
+      'Pantai tenang dengan resort mewah dan fasilitas keluarga.',
+      'Patung raksasa budaya Hindu yang megah dan penuh sejarah.',
+      'Pantai tersembunyi dengan pasir putih dan tebing dramatis.'
+    ];
+
+    detailButtons.forEach((btn, index) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalTitle.textContent = titles[index];
+        modalDesc.textContent = descriptions[index];
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeModal.onclick = () => modal.style.display = 'none';
+    window.onclick = (e) => {
+      if (e.target === modal) modal.style.display = 'none';
+    };
+  </script>
+</body>
+</html>
